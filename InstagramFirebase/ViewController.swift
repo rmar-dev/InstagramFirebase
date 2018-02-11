@@ -92,7 +92,17 @@ class ViewController: UIViewController {
         
         view.addSubview(stackView)
         
-        stackView.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, height: 200)
+        stackView.anchor(
+            top: plusPhotoButton.bottomAnchor, 
+            left: view.leftAnchor, 
+            bottom: nil, 
+            right: view.rightAnchor, 
+            paddingTop: 20, 
+            paddingLeft: 40, 
+            paddingBottom: 0, 
+            paddingRight: 40, 
+            height: 200
+        )
     }
 }
 
