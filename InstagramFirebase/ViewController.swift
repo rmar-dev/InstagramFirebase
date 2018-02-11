@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     //create plus button for picture
     let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "plus_photo").withRenderingMode(.alwaysOriginal), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false;
         return button
     }()
@@ -46,6 +46,16 @@ class ViewController: UIViewController {
         return tf
     }()
     
+    let signupButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Sign up", for: .normal)
+        button.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,14 +79,12 @@ class ViewController: UIViewController {
 
     fileprivate func setupInputFields() {
         
-        
         let stackView = UIStackView(arrangedSubviews: [
             emailTextField,
             usernameTextField,
-            passwordTextField
+            passwordTextField,
+            signupButton
             ])
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
@@ -84,23 +92,8 @@ class ViewController: UIViewController {
         
         view.addSubview(stackView)
         
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: plusPhotoButton.bottomAnchor, constant: 20),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40),
-            stackView.heightAnchor.constraint(equalToConstant: 200)
-            ])
-        
+        stackView.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, height: 200)
     }
 }
-
-
-
-
-
-
-
-
-
 
 
